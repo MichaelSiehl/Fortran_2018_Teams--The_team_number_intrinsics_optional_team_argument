@@ -2,7 +2,7 @@
 Fortran 2018 teams: Test case showing practical use of the `team_number` intrinsic function's optional team argument
 
 # Overview and Test Case
-The Fortran 2018 intrinsic function `team_number` does provide an optional team argument. The simple example program below is intended as an example of it's usefulness in practice.<br />
+The Fortran 2018 intrinsic function `team_number` does provide an optional team argument. The simple example program below is intended as an example of it's usefulness in practice. The code shows how to create multiple sets of coarray teams within a single `form team` statement. The second `form team` statement forms 3 new sets of coarray teams each consisting of 2 teams (that's 6 new teams in total).<br />
 
 If we execute the same `form team` statement on all images within a `change team` construct (that already comprises a set of teams), that single `form team` statement does not only form a single set of new teams but instead can form multiple sets of new teams at once:<br />
 For each team in MainTeam a new set of teams is created in SubTeam; Since MainTeam comprises 3 teams, and the `form team` statement in SubTeam does form 2 new teams, that single `form team` statement does actually form 6 new teams.<br />
